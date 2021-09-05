@@ -68,3 +68,60 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Project Name
+
+**Author**: Marwan Zakia
+**Version**: 1.0.0
+
+## Overview
+<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+A website that allows user to elxplore a static map
+## Getting Started
+<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+clone the repo and npm i
+## Architecture
+<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+receat javascript ,css ,bootstrap 
+## Change Log
+<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+
+01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+## Credit and Collaborations
+<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+
+
+
+Name of feature: adding a form 
+
+Estimate of time needed to complete: 15min  
+
+Start time: 2 :0
+
+Finish time:  2 :15
+
+Actual time needed to complete: 2:15
+
+
+
+Name of feature: connct the map data 
+
+Estimate of time needed to complete: 45min  
+
+Start time: 2 :15
+
+Finish time:  3 :15
+
+Actual time needed to complete: 1hr
+
+Name of feature: css work 
+Estimate of time needed to complete: 15 min  
+
+Start time: 3 :15
+
+Finish time:  3 : 30
+
+Actual time needed to complete: 15 min
