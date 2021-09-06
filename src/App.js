@@ -18,6 +18,8 @@ class App extends React.Component {
     this.state = {
       lat: '',
       lon: '',
+      description: '',
+      data :'',
       displayName: '',
       mapFlag: false,
       displayErorr: false
@@ -28,15 +30,19 @@ class App extends React.Component {
     event.preventDefault();
     const cityName = event.target.text.value;
     const URL = `https://api.locationiq.com/v1/autocomplete.php?key=${process.env.REACT_APP_MAP_KEY}&q=${cityName}`;
-    console.log(URL);
+    const URL2 =`http://localhost:3000/citynames?name=${cityName}`;
+
     try {
       let apiData = await axios.get(URL);
+      let apiData2 = await axios.get(URL2);
       this.setState({
         lat: apiData.data[0].lat,
         lon: apiData.data[0].lon,
-        displayName: apiData.data[0].display_name,
+        displayName:cityName,
         mapFlag: true,
-        displayErorr: false
+        displayErorr: false,
+        description : apiData2.data[0].description,
+        date : apiData2.data[0].date
 
       });
     }
@@ -76,8 +82,8 @@ class App extends React.Component {
                 <Card.Body>
                   <Card.Title>You explored</Card.Title>
                   <Card.Text>
-                    City Name  : {this.state.displayName}         longitude : {this.state.lon}             latitude  :  {this.state.lat}.
-
+                    City Name  : {this.state.displayName}    <br/>        latitude  :  {this.state.lat}     <br/>       longitude : {this.state.lon}     <br/>       description : {this.state.description}
+                    <br/>       date : {this.state.date}
 
                     {this.state.displayErorr && <p style={{ color: 'red' }} >There was a problem connecting to the server(console.error(404))</p>}
 
