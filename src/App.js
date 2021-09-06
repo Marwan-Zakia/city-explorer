@@ -27,8 +27,8 @@ class App extends React.Component {
   Formhandler = async (event) => {
     event.preventDefault();
     const cityName = event.target.text.value;
-    const key = 'pk.35669867e8107984b3cdf9f0c6f00aab';
-    const URL = `https://api.locationiq.com/v1/autocomplete.php?key=${key}&q=${cityName}`;
+    const URL = `https://api.locationiq.com/v1/autocomplete.php?key=${process.env.REACT_APP_MAP_KEY}&q=${cityName}`;
+    console.log(URL);
     try {
       let apiData = await axios.get(URL);
       this.setState({
@@ -72,7 +72,7 @@ class App extends React.Component {
           <Container className='body2'>
             <Row>
               <Col> <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=pk.35669867e8107984b3cdf9f0c6f00aab&center=${this.state.lat},${this.state.lon}&zoom=1-18`} />
+                <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_MAP_KEY}&center=${this.state.lat},${this.state.lon}&zoom=1-18`} />
                 <Card.Body>
                   <Card.Title>You explored</Card.Title>
                   <Card.Text>
