@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Footer from './components/Footer';
 import Container from 'react-bootstrap/Container';
-
+import Forecast from './components/newforecast';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +22,9 @@ class App extends React.Component {
       data :'',
       displayName: '',
       mapFlag: false,
-      displayErorr: false
+      displayErorr: false,
+
+
     };
 
   };
@@ -30,7 +32,7 @@ class App extends React.Component {
     event.preventDefault();
     const cityName = event.target.text.value;
     const URL = `https://api.locationiq.com/v1/autocomplete.php?key=${process.env.REACT_APP_MAP_KEY}&q=${cityName}`;
-    const URL2 =`http://localhost:3000/citynames?name=${cityName}`;
+    const URL2 =`https://gpsapimarwan.herokuapp.com/citynames?name=${cityName}&?lat=${this.state.lat}&?lon=${this.state.lon}`;
 
     try {
       let apiData = await axios.get(URL);
@@ -41,8 +43,14 @@ class App extends React.Component {
         displayName:cityName,
         mapFlag: true,
         displayErorr: false,
-        description : apiData2.data[0].description,
-        date : apiData2.data[0].date
+        description:apiData2.data[0].description,
+        date:apiData2.data[0].date,
+        description1:apiData2.data[1].description,
+        date1:apiData2.data[1].date,
+         description2:apiData2.data[2].description,
+        date2:apiData2.data[2].date,
+
+
 
       });
     }
@@ -75,6 +83,7 @@ class App extends React.Component {
           </Button>
         </Form>
         <div className='body'>
+        {/* <Forecast desc={this.state.description} date={this.state.date} /> */}
           <Container className='body2'>
             <Row>
               <Col> <Card style={{ width: '18rem' }}>
@@ -82,8 +91,8 @@ class App extends React.Component {
                 <Card.Body>
                   <Card.Title>You explored</Card.Title>
                   <Card.Text>
-                    City Name  : {this.state.displayName}    <br/>        latitude  :  {this.state.lat}     <br/>       longitude : {this.state.lon}     <br/>       description : {this.state.description}
-                    <br/>       date : {this.state.date}
+                    City Name  : {this.state.displayName}    <br/>        latitude  :  {this.state.lat}     <br/>       longitude : {this.state.lon}     <br/>
+
 
                     {this.state.displayErorr && <p style={{ color: 'red' }} >There was a problem connecting to the server(console.error(404))</p>}
 
@@ -92,7 +101,9 @@ class App extends React.Component {
               </Card></Col>
             </Row>
           </Container>
+          <Forecast desc1={this.state.description} date1={this.state.date} desc2={this.state.description1} date2={this.state.date1} desc3={this.state.description2} date3={this.state.date2} />
         </div>
+
         <Footer />
 
       </>
