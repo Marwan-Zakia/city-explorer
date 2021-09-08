@@ -1,23 +1,27 @@
 /* eslint-disable no-trailing-spaces */
 import React, { Component } from 'react';
-
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import './card.scss';
 class Forecast extends Component {
     render() {
         return (
             <div> 
-                day 1 :
-<p>{this.props.desc1}</p>
-<p>{this.props.date1}</p><b/>
-
-day 2 :
-<p>{this.props.desc2}</p>
-<p>{this.props.date2}</p><b/>
-
-day 3 :
-<p>{this.props.desc3}</p>
-<p>{this.props.date3}</p><b/>
-
-                <div></div>
+       <Container className='body2'>
+        
+           
+               <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                  <Card.Text>
+              The weather :  {this.props.item.description}
+                  </Card.Text>
+                  date : {this.props.item.date}
+                  <Card.Text>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              
+          </Container>
             </div>
         );
     }
